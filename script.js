@@ -50,6 +50,7 @@ function handleTerminalCommand(input) {
     var cmd = input.replace(sh_prompt, '');
     cmd_history.push(cmd);
     getCommand(cmd);
+    document.getElementById("terminalinput").scrollIntoView();
 };
 
 function clearTerminalInput() {
