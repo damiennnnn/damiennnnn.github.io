@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>damien.one:~$</title>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <script src="commands.js"></script>
     <script src="script.js"></script>
-    <label for="terminalinput">damien.one:~$</label>
-    <textarea id="terminalinput" name="terminalinput" rows="1" cols="50"></textarea>
-
+    <div class="terminalarea">
+        <textarea readonly="true" id="terminaloutput" name="terminaloutput" rows="1" cols="68" spellcheck="false"></textarea>
+        <br>
+        <textarea id="terminalinput" name="terminalinput" rows="1" cols="68" spellcheck="false"></textarea>
+    </div>
 </body>
 
 </html>

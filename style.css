@@ -1,0 +1,25 @@
+textarea {
+    resize: none;
+    overflow: hidden;
+    border-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    user-select: none;
+}
+
+textarea:focus {
+    resize: none;
+    overflow: hidden;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    user-select: none;
+}
+
+.terminalarea {
+    line-height: 0;
+    display: block;
+    caret-color: red;
+}
