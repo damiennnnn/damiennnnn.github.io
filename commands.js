@@ -1,8 +1,10 @@
 const help_cmd = [
-    "   test            Hello",
+    "   info            Outputs the MOTD info",
     "   github          Link to GitHub page",
     "   exit            Closes the window"
 ];
+
+
 
 const info_text = "       __                _                            \n  ____/ /___ _____ ___  (_)__  ____   ____  ____  ___ \n / __  / __ `/ __ `__ \\/ / _ \\/ __ \\ / __ \\/ __ \\/ _ \\\n/ /_/ / /_/ / / / / / / /  __/ / / // /_/ / / / /  __/\n\\__,_/\\__,_/_/ /_/ /_/_/\\___/_/ /_(_)____/_/ /_/\\___/ \n";
 const info_desc = [
@@ -58,6 +60,9 @@ function getCommand(cmd) {
             break;
         case "github":
             openGithub();
+            break;
+        case "test":
+
             break;
         default:
             printStringToOutput("   Command \"" + cmd + "\" not found.");
