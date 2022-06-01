@@ -7,15 +7,22 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>damien.one:~$</title>
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="terminalbody">
     <script src="commands.js"></script>
     <script src="script.js"></script>
     <div class="terminalarea">
-        <textarea readonly="true" id="terminaloutput" name="terminaloutput" rows="1" cols="68" spellcheck="false"></textarea>
-        <br>
-        <textarea id="terminalinput" name="terminalinput" rows="1" cols="68" spellcheck="false"></textarea>
+        <div id="terminaloutput" name="terminaloutput">
+        </div>
+        <!--<textarea readonly="true " id="terminaloutput " name="terminaloutput " rows="1 " cols="68 " spellcheck="false "></textarea> -->
+
+        <label for="terminalinput " class="terminalprompt ">damien.one:~$ </label>
+        <input type="text" tabindex="0" id="terminalinput" name="terminalinput" spellcheck="false"></input>
     </div>
 </body>
 
