@@ -1,4 +1,4 @@
-textarea {
+input {
     resize: none;
     overflow: hidden;
     border-style: none;
@@ -6,9 +6,15 @@ textarea {
     padding: 0;
     overflow-y: hidden;
     user-select: none;
+    background-color: transparent;
+    font-family: 'Noto Sans Mono', monospace;
+    font-weight: bolder;
+    font-size: medium;
+    color: #d3d7cf;
+    border-right: 1px solid transparent;
 }
 
-textarea:focus {
+input:focus {
     resize: none;
     overflow: hidden;
     outline: none;
@@ -16,10 +22,41 @@ textarea:focus {
     padding: 0;
     overflow-y: hidden;
     user-select: none;
+    font-size: medium;
+    background-color: transparent;
+    font-family: 'Noto Sans Mono', monospace;
+    font-weight: bolder;
+    color: #d3d7cf;
+    box-sizing: content-box;
+}
+
+.asciiart {
+    font-family: 'Noto Sans Mono', monospace;
+    font-weight: bolder;
+    color: #61ffca;
+}
+
+.terminalprompt {
+    font-family: 'Noto Sans Mono', monospace;
+    font-weight: bolder;
+    color: #ff6767;
+}
+
+.terminaloutput {
+    font-family: 'Noto Sans Mono', monospace;
+    font-weight: bolder;
+    white-space: pre;
+    color: #d3d7cf;
+}
+
+.terminalbody {
+    background-color: #110f18;
+    font-family: 'Noto Sans Mono', monospace;
+    font-weight: bolder;
+    color: #d3d7cf;
 }
 
 .terminalarea {
-    line-height: 0;
     display: block;
     caret-color: red;
 }
