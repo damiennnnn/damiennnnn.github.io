@@ -8,11 +8,45 @@ function keyupHandler(event) {
         ctrlKey = false;
 };
 
+
+var history_index = 0;
+
 function keydownHandler(event) {
-    document.getElementById("terminalinput").size = Math.max(0, document.getElementById("terminalinput").value.length);
+    var inputbox = document.getElementById("terminalinput");
+    if (inputbox.value)
+        inputbox.size = Math.max(0, inputbox.value.length);
     if (event.which == 17)
         ctrlKey = true;
+
     switch (event.which) {
+        case 38: // up arrow
+            if (cmd_history.length > 0) {
+                var new_index = history_index + 1;
+
+                if (new_index > cmd_history.length) new_index = cmd_history.length;
+                if (cmd_history[cmd_history.length - new_index]) {
+                    inputbox.value = cmd_history[cmd_history.length - new_index];
+                    history_index = new_index;
+                    inputbox.size = Math.max(0, inputbox.value.length);
+                }
+
+            }
+            event.preventDefault();
+            break;
+        case 40: // dwn arrow
+            if (cmd_history.length > 0) {
+                var new_index = history_index - 1;
+                if (new_index < 0)
+                    new_index = 0;
+                if (cmd_history[cmd_history.length - new_index]) {
+                    inputbox.value = cmd_history[cmd_history.length - new_index];
+                    history_index = new_index;
+                    inputbox.size = Math.max(0, inputbox.value.length);
+                }
+            }
+            event.preventDefault();
+            break;
+
         case 65:
             if (ctrlKey) event.preventDefault();
             break;
@@ -25,11 +59,12 @@ function keydownHandler(event) {
             break;
         case 13: // enter
             event.preventDefault();
+            history_index = 0;
             //alert(document.getElementById("terminalinput").value);
-            handleTerminalCommand(document.getElementById("terminalinput").value);
+            handleTerminalCommand(inputbox.value);
             clearTerminalInput();
-            document.getElementById("terminalinput").value = sh_prompt;
-            document.getElementById("terminalinput").size = Math.max(1, document.getElementById("terminalinput").value.length);
+            inputbox.value = sh_prompt;
+            inputbox.size = Math.max(1, inputbox.value.length);
             break;
 
     }
