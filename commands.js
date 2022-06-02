@@ -1,6 +1,7 @@
 const help_cmd = [
     "",
     "   info            Outputs the MOTD info",
+    "   uname           Prints system information",
     "   clear           Clears the terminal",
     "   github          Link to GitHub page",
     "   exit            Closes the window"
