@@ -1,5 +1,7 @@
 const help_cmd = [
+    "",
     "   info            Outputs the MOTD info",
+    "   clear           Clears the terminal",
     "   github          Link to GitHub page",
     "   exit            Closes the window"
 ];
@@ -38,14 +40,57 @@ function openGithub() {
 
 }
 
+var browserName = (function(agent) {
+    switch (true) {
+        case agent.indexOf("edge") > -1:
+            return "Edge (EdgeHTML)";
+        case agent.indexOf("edg/") > -1:
+            return "Edge (Chromium)";
+        case agent.indexOf("opr") > -1 && !!window.opr:
+            return "Opera";
+        case agent.indexOf("chrome") > -1 && !!window.chrome:
+            return "Chrome";
+        case agent.indexOf("trident") > -1:
+            return "IE";
+        case agent.indexOf("firefox") > -1:
+            return "Firefox";
+        case agent.indexOf("safari") > -1:
+            return "Safari";
+        default:
+            return "Other";
+    }
+})(window.navigator.userAgent.toLowerCase());
+
+function unixName(param) {
+    var unixNameOutput = browserName + " ";
+    var host = "damien.one";
+    var kernelRel = "0.0.1-generic";
+    var kernelVer = "Thu Jun 2 16:33:52 BST 2022";
+    var machine = "JavaScript";
+
+    switch (param) {
+        case "-a":
+            unixNameOutput += host + " ";
+            unixNameOutput += kernelRel + " ";
+            unixNameOutput += kernelVer + " ";
+            unixNameOutput += machine + " ";
+            break;
+        default:
+            break;
+    }
+
+    printStringToOutput(unixNameOutput);
+}
+
 function clearOutput() {
     resetOutputArea();
 }
 
 function getCommand(cmd) {
-    printStringToOutput("");
+    var split = cmd.split(" ");
+    //printStringToOutput(split.length);
     //alert(cmd);
-    switch (cmd.toLowerCase()) {
+    switch (split[0].toLowerCase()) {
         case "info":
             printInfo();
             break
@@ -61,8 +106,11 @@ function getCommand(cmd) {
         case "github":
             openGithub();
             break;
-        case "test":
-
+        case "uname":
+            if (split.length > 1)
+                unixName(split[1]);
+            else
+                unixName("");
             break;
         default:
             printStringToOutput("   Command \"" + cmd + "\" not found.");
